@@ -23,8 +23,8 @@ object Example {
 
     // load initial RDD
     val rdd = sc.parallelize(List(
-      Person(1, BigDecimal("50000.00")),
-      Person(1, BigDecimal("123000.00")) //oops, this doesn't fit in a DecimalType(7,2)
+      Employee(1, BigDecimal("50000.00")),
+      Employee(1, BigDecimal("123000.00")) //oops, this doesn't fit in a DecimalType(7,2)
     ))
 
     // convert to RDD[Row]
@@ -40,11 +40,22 @@ object Example {
     // read from parquet
     sqlContext.read.parquet(tableName).show(10)
 
+    // returns this....
+
+    /*
++-----------+--------+
+|employee_id|  salary|
++-----------+--------+
+|          1|50000.00|
+|          1|    null|
++-----------+--------+
+     */
+
   }
 
 }
 
-case class Person(id: Int, salary: BigDecimal)
+case class Employee(id: Int, salary: BigDecimal)
 
 
 
