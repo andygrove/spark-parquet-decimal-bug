@@ -1,2 +1,2 @@
-# spark-parquet-decimal-bug
-Demonstrates that parquet silently discards values in some cases
+# spark-sql-dataframe-udt
+Demonstration of using Spark SQL with custom UDT
